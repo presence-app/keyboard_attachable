@@ -53,11 +53,14 @@ class KeyboardAttachableFooter extends StatelessWidget {
 /// Builds a [ListView] made of colored containers that fill the page.
 class ColorsList extends StatelessWidget {
   @override
-  Widget build(BuildContext context) => ListView.builder(
+  Widget build(BuildContext context) =>
+      GestureDetector(
+       onTap: () {FocusManager.instance.primaryFocus?.unfocus();},
+      child:ListView.builder(
         itemExtent: 66,
         itemCount: Colors.primaries.length,
         itemBuilder: (_, i) => Container(
           color: Colors.primaries[i].shade100,
         ),
-      );
+      ),);
 }
